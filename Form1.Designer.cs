@@ -32,6 +32,7 @@
             lstMsgbox = new ListBox();
             txtInput = new TextBox();
             btnSend = new Button();
+            lblMsgCount = new Label();
             SuspendLayout();
             // 
             // lblTitle
@@ -39,7 +40,7 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Book Antiqua", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = SystemColors.MenuHighlight;
-            lblTitle.Location = new Point(12, 20);
+            lblTitle.Location = new Point(12, 26);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(380, 57);
             lblTitle.TabIndex = 0;
@@ -47,10 +48,11 @@
             // 
             // lstMsgbox
             // 
+            lstMsgbox.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point, 129);
             lstMsgbox.FormattingEnabled = true;
             lstMsgbox.Location = new Point(22, 95);
             lstMsgbox.Name = "lstMsgbox";
-            lstMsgbox.Size = new Size(748, 274);
+            lstMsgbox.Size = new Size(748, 256);
             lstMsgbox.TabIndex = 1;
             // 
             // txtInput
@@ -73,12 +75,23 @@
             btnSend.UseVisualStyleBackColor = false;
             btnSend.Click += btnSend_Click;
             // 
+            // lblMsgCount
+            // 
+            lblMsgCount.AutoSize = true;
+            lblMsgCount.Font = new Font("문체부 돋음체", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            lblMsgCount.Location = new Point(22, 364);
+            lblMsgCount.Name = "lblMsgCount";
+            lblMsgCount.Size = new Size(140, 19);
+            lblMsgCount.TabIndex = 4;
+            lblMsgCount.Text = "현재 대화: 0개";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Info;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblMsgCount);
             Controls.Add(btnSend);
             Controls.Add(txtInput);
             Controls.Add(lstMsgbox);
@@ -95,5 +108,6 @@
         private ListBox lstMsgbox;
         private TextBox txtInput;
         private Button btnSend;
+        private Label lblMsgCount;
     }
 }
