@@ -10,7 +10,23 @@ namespace EchoMessenger
         private void btnSend_Click(object sender, EventArgs e)
         {
             string typedMsg = txtInput.Text;
-            lstMsgbox.Items.Add(typedMsg);
+
+            if (!string.IsNullOrWhiteSpace(typedMsg))
+            {
+                lstMsgbox.Items.Add(typedMsg);
+                txtInput.Focus();
+                txtInput.Clear();
+            }
+
+        }
+
+        private void txtInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnSend.PerformClick();
+            }
         }
     }
 }
