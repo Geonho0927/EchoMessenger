@@ -6,5 +6,11 @@ namespace EchoMessenger
         {
             InitializeComponent();
         }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            string typedMsg = txtInput.Text;
+            lstMsgbox.Items.Add(typedMsg);
+        }
     }
 }
