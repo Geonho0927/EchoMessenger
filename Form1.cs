@@ -11,17 +11,25 @@ namespace EchoMessenger
         {
             string typedMsg = txtInput.Text.Trim();
 
-            if (!string.IsNullOrWhiteSpace(typedMsg))
+            if (string.IsNullOrWhiteSpace(typedMsg))
             {
-                string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                string finalMsg = $"[{timestamp}] {typedMsg}";
-
-                lstMsgbox.Items.Add(finalMsg);
-                txtInput.Focus();
-                txtInput.Clear();
-
-                lblMsgCount.Text = $"현재 대화: {lstMsgbox.Items.Count}개";
+                return;
             }
+
+            if (typedMsg.Length > 50)
+            {
+                MessageBox.Show("메시지는 50자 이하로 입력하세요.");
+                return;
+            }
+
+            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string finalMsg = $"[{timestamp}] {typedMsg}";
+
+            lstMsgbox.Items.Add(finalMsg);
+            txtInput.Focus();
+            txtInput.Clear();
+
+            lblMsgCount.Text = $"현재 대화: {lstMsgbox.Items.Count}개";
 
         }
 
@@ -32,6 +40,27 @@ namespace EchoMessenger
                 e.SuppressKeyPress = true;
                 btnSend.PerformClick();
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (lstMsgbox.SelectedIndex != -1)
+            {
+                lstMsgbox.Items.RemoveAt(lstMsgbox.SelectedIndex);
+
+                lblMsgCount.Text = $"현재 대화: {lstMsgbox.Items.Count}개";
+            }
+            else
+            {
+                MessageBox.Show("삭제할 메시지를 선택하세요.");
+            }
+        }
+
+        private void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            lstMsgbox.Items.Clear();
+
+            lblMsgCount.Text = "현재 대화: 0개";
         }
     }
 }

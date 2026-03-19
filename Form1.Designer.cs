@@ -33,6 +33,8 @@
             txtInput = new TextBox();
             btnSend = new Button();
             lblMsgCount = new Label();
+            btnDelete = new Button();
+            btnDeleteAll = new Button();
             SuspendLayout();
             // 
             // lblTitle
@@ -85,12 +87,38 @@
             lblMsgCount.TabIndex = 4;
             lblMsgCount.Text = "현재 대화: 0개";
             // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.FromArgb(255, 128, 128);
+            btnDelete.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            btnDelete.Location = new Point(498, 27);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(120, 56);
+            btnDelete.TabIndex = 5;
+            btnDelete.Text = "삭제";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnDeleteAll
+            // 
+            btnDeleteAll.BackColor = Color.FromArgb(255, 128, 128);
+            btnDeleteAll.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            btnDeleteAll.Location = new Point(636, 26);
+            btnDeleteAll.Name = "btnDeleteAll";
+            btnDeleteAll.Size = new Size(134, 56);
+            btnDeleteAll.TabIndex = 6;
+            btnDeleteAll.Text = "대화 기록 삭제";
+            btnDeleteAll.UseVisualStyleBackColor = false;
+            btnDeleteAll.Click += btnDeleteAll_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Info;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnDeleteAll);
+            Controls.Add(btnDelete);
             Controls.Add(lblMsgCount);
             Controls.Add(btnSend);
             Controls.Add(txtInput);
@@ -109,5 +137,7 @@
         private TextBox txtInput;
         private Button btnSend;
         private Label lblMsgCount;
+        private Button btnDelete;
+        private Button btnDeleteAll;
     }
 }
